@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmcvnrd75u5mj"]
+
+[ext_resource type="Script" uid="uid://ct8dhkynf212i" path="res://scripts/start_scene.gd" id="1_aeweq"]
+[ext_resource type="PackedScene" uid="uid://ccxe0klhepute" path="res://Scenes/main_menu.tscn" id="2_8turk"]
+[ext_resource type="Texture2D" uid="uid://18minjfhumgn" path="res://3dModels/donutStuff/donutBase.png" id="3_8turk"]
+[ext_resource type="Texture2D" uid="uid://bihp7ck0hhyil" path="res://3dModels/donutStuff/donutPile.png" id="4_tn7b4"]
+
+[sub_resource type="Curve3D" id="Curve3D_7tv2a"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_aeweq"]
+colors = PackedColorArray(0, 0, 0, 1, 0.392157, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8turk"]
+gradient = SubResource("Gradient_aeweq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tn7b4"]
+emission_shape_scale = Vector3(1, 0.1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -265.8
+angle_max = 310.2
+gravity = Vector3(0, -1, 0)
+color = Color(0.215686, 1, 1, 1)
+color_ramp = SubResource("GradientTexture1D_8turk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tn7b4"]
+albedo_color = Color(0.923779, 0.802159, 0.558899, 0.505882)
+albedo_texture = ExtResource("3_8turk")
+metallic_specular = 0.51
+roughness = 0.85
+emission_enabled = true
+emission = Color(0.549563, 0.467126, 0.000703864, 1)
+emission_energy_multiplier = 0.62
+
+[sub_resource type="TorusMesh" id="TorusMesh_xt55t"]
+material = SubResource("StandardMaterial3D_tn7b4")
+inner_radius = 0.049
+outer_radius = 0.27
+
+[sub_resource type="Skin" id="Skin_0h5c2"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_aeweq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MainMenu" parent="Camera3D" instance=ExtResource("2_8turk")]
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2.128)
+curve = SubResource("Curve3D_7tv2a")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, 0)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="objectArray" type="Node" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27185, -1.63142)
+sub_emitter = NodePath(".")
+lifetime = 4.0
+explosiveness = 0.05
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_tn7b4")
+draw_pass_1 = SubResource("TorusMesh_xt55t")
+draw_skin = SubResource("Skin_0h5c2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46419, 0)
+light_energy = 3.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.93543)
+texture = ExtResource("4_tn7b4")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

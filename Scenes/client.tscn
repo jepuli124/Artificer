@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj7fe37jynutx"]
+
+[ext_resource type="PackedScene" uid="uid://cpxstucplnad5" path="res://3dModels/Human5.fbx" id="1_de1uw"]
+
+[node name="client" instance=ExtResource("1_de1uw")]

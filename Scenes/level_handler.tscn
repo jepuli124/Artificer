@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcv5vr6h2tsd1"]
+
+[ext_resource type="PackedScene" uid="uid://ds8truaqudd84" path="res://Scenes/tower.tscn" id="1_bnsig"]
+[ext_resource type="Script" uid="uid://5onxximepixg" path="res://scripts/level_handler.gd" id="1_xxr4i"]
+
+[node name="levelHandler" type="Node3D"]
+script = ExtResource("1_xxr4i")
+
+[node name="Tower" parent="." instance=ExtResource("1_bnsig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.671491, 0.131561, 0.0835485)

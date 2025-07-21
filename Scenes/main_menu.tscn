@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ccxe0klhepute"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "The one and the only donut game named artificer"
+
+[node name="Levels" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Levels
+"
+
+[node name="Options" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Info" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits, Acknowlegdements, AI statements, and info "
+
+[node name="Tutorial" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "hOw tO PlAy"
+
+[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "The good button
+ (exit)"

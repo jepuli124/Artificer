@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://de2fwgfh4ilgc"]
+
+[ext_resource type="Script" uid="uid://makpva3oin0s" path="res://scripts/enemy_spawner.gd" id="1_4l55s"]
+
+[sub_resource type="Curve3D" id="Curve3D_4l55s"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="EnemySpawner" type="Node3D"]
+script = ExtResource("1_4l55s")
+
+[node name="ClientTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="ClientArray" type="Node" parent="."]
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36433, 0, 0)
+curve = SubResource("Curve3D_4l55s")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 0)
+
+[connection signal="timeout" from="ClientTimer" to="." method="_on_timer_timeout"]

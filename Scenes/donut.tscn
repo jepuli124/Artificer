@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://r56acher5wec"]
+
+[ext_resource type="PackedScene" uid="uid://d3dgjcgpe7llg" path="res://3dModels/donutStuff/donut.glb" id="1_mmpmu"]
+
+[node name="Donut" type="Node3D"]
+
+[node name="donut" parent="." instance=ExtResource("1_mmpmu")]

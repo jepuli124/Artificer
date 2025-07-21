@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg25xh1ay5kqx"]
+
+[ext_resource type="PackedScene" uid="uid://uw2tdv40ixx7" path="res://3dModels/donutStuff/donutSprigle.glb" id="1_q5onu"]
+
+[node name="SpringleDonut" type="Node3D"]
+
+[node name="donutSprigle" parent="." instance=ExtResource("1_q5onu")]
