@@ -1,4 +1,15 @@
-[gd_scene format=3 uid="uid://ccxe0klhepute"]
+[gd_scene load_steps=5 format=3 uid="uid://ccxe0klhepute"]
+
+[ext_resource type="Script" uid="uid://bw004p28jvgwk" path="res://scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="PackedScene" uid="uid://csu7bkntwyjps" path="res://Scenes/game_over.tscn" id="2_48xlc"]
+
+[sub_resource type="Gradient" id="Gradient_28flt"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.136364, 0.844156, 1)
+colors = PackedColorArray(1, 1, 1, 0.27451, 0, 0, 0, 0.392157, 0, 0, 0, 0.392157, 1, 1, 1, 0.27451)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_48xlc"]
+gradient = SubResource("Gradient_28flt")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,6 +18,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(570, 400.75)
+scale = Vector2(4.58594, 802.5)
+texture = SubResource("GradientTexture1D_48xlc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -14,34 +31,173 @@ offset_right = 1151.0
 offset_bottom = 647.0
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Menu" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "The one and the only donut game named artificer"
 
-[node name="Levels" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Levels" type="Button" parent="HBoxContainer/Menu"]
 layout_mode = 2
 text = "Levels
 "
 
-[node name="Options" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="HBoxContainer/Menu"]
 layout_mode = 2
 text = "Options
 "
 
-[node name="Info" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Info" type="Button" parent="HBoxContainer/Menu"]
 layout_mode = 2
 text = "Credits, Acknowlegdements, AI statements, and info "
 
-[node name="Tutorial" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Tutorial" type="Button" parent="HBoxContainer/Menu"]
 layout_mode = 2
 text = "hOw tO PlAy"
 
-[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="HBoxContainer/Menu"]
 layout_mode = 2
 text = "The good button
  (exit)"
+
+[node name="Info" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReturnFromInfo" type="Button" parent="HBoxContainer/Info"]
+layout_mode = 2
+text = "back to main menu"
+
+[node name="Label" type="Label" parent="HBoxContainer/Info"]
+layout_mode = 2
+text = "Everything here is made by Konsta Jalkanen for the game
+funnimentals of development course CT30A1300 
+
+No AI has been used which probably caused this to be more 
+of a joke than a game
+
+Finished 31.7.2025
+
+There was ment to be animations for the client and so on but
+I run out of time and due to the quality of other props, 
+the T-pose only made this funnier.
+
+The reason this is named artificer is that I saved my files to
+github wrong repository and I'm to lazy to change it.
+
+This has been a great way to test everything that comes to
+making a video game.
+
+This product consists 3 wizard(s)"
+horizontal_alignment = 1
+
+[node name="WizardCounter" type="Label" parent="HBoxContainer/Info"]
+layout_mode = 2
+text = "You have found 0 wizard(s)"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="HBoxContainer/Info"]
+layout_mode = 2
+text = "Most points: 
+Highest Level completed: "
+horizontal_alignment = 1
+
+[node name="Tutorial" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="ReturnFromInfo" type="Button" parent="HBoxContainer/Tutorial"]
+layout_mode = 2
+text = "back to main menu"
+
+[node name="Label" type="Label" parent="HBoxContainer/Tutorial"]
+layout_mode = 2
+text = "Moving:
+Move with left and right arrow,
+hovering mouse on left or right side of the screen,
+or left or right on game controller.
+Interract with left and right click.
+  
+Main game:
+Donut's grow on wall, you can pick them by clicking on them
+In front of your tower, clients arrive.
+Serve them donuts before they become 
+hangry (hungry and angry)
+
+Stones can also be found at walls and these are used to
+deter the monster by throwing them at it.
+
+Using stones against clients is disencourages as it is
+inhumane I guess.
+
+You win by surviving the day.
+
+Easter eggs are included due to the wishes of the wizard counsil"
+horizontal_alignment = 1
+
+[node name="Levels" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="ReturnFromInfo" type="Button" parent="HBoxContainer/Levels"]
+layout_mode = 2
+text = "back to main menu"
+
+[node name="Options" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="ReturnFromInfo" type="Button" parent="HBoxContainer/Options"]
+layout_mode = 2
+text = "back to main menu"
+
+[node name="Label" type="Label" parent="HBoxContainer/Options"]
+layout_mode = 2
+text = "
+Your options:
+Play or not to play.
+That's it
+
+
+"
+
+[node name="Label2" type="Label" parent="HBoxContainer/Options"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.103744, 0.103744, 0.103744, 1)
+theme_override_font_sizes/font_size = 8
+text = "
+
+
+
+or to find some wizards"
+vertical_alignment = 2
+
+[node name="GameOver" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="ReturnFromInfo" type="Button" parent="HBoxContainer/GameOver"]
+layout_mode = 2
+text = "back to main menu"
+
+[node name="GameOver" parent="HBoxContainer/GameOver" instance=ExtResource("2_48xlc")]
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/Menu/Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/Info" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="HBoxContainer/Info/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]
+[connection signal="pressed" from="HBoxContainer/Tutorial/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]
+[connection signal="pressed" from="HBoxContainer/Levels/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]
+[connection signal="pressed" from="HBoxContainer/Options/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]
+[connection signal="pressed" from="HBoxContainer/GameOver/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]

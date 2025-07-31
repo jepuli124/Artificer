@@ -1,10 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcv5vr6h2tsd1"]
+[gd_scene load_steps=6 format=3 uid="uid://bcv5vr6h2tsd1"]
 
 [ext_resource type="PackedScene" uid="uid://ds8truaqudd84" path="res://Scenes/tower.tscn" id="1_bnsig"]
 [ext_resource type="Script" uid="uid://5onxximepixg" path="res://scripts/level_handler.gd" id="1_xxr4i"]
+[ext_resource type="PackedScene" uid="uid://csu7bkntwyjps" path="res://Scenes/game_over.tscn" id="3_xxr4i"]
+
+[sub_resource type="Sky" id="Sky_xxr4i"]
+
+[sub_resource type="Environment" id="Environment_mq6nj"]
+background_mode = 1
+background_color = Color(0.385289, 0.44198, 0.471298, 1)
+sky = SubResource("Sky_xxr4i")
+ambient_light_color = Color(0.473412, 0.729394, 0.799087, 1)
 
 [node name="levelHandler" type="Node3D"]
 script = ExtResource("1_xxr4i")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 23.7737, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mq6nj")
+
 [node name="Tower" parent="." instance=ExtResource("1_bnsig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.671491, 0.131561, 0.0835485)
+
+[node name="GameOverCamera" type="Camera3D" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="GameOverCamera"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1167.0
+offset_bottom = 655.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOverCamera/Control"]
+layout_mode = 0
+offset_right = 1165.0
+offset_bottom = 649.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverCamera/Control/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="exit" type="Button" parent="GameOverCamera/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Return to main menu"
+
+[node name="GameOver" parent="GameOverCamera/Control/HBoxContainer/VBoxContainer" instance=ExtResource("3_xxr4i")]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+
+[connection signal="lose" from="Tower" to="." method="_on_tower_lose"]
+[connection signal="pressed" from="GameOverCamera/Control/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

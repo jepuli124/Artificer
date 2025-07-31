@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://0gn22qa8ngqa"]
+
+[ext_resource type="PackedScene" uid="uid://de2fwgfh4ilgc" path="res://Scenes/enemy_spawner.tscn" id="1_s7gh3"]
+[ext_resource type="PackedScene" uid="uid://dgwxsrpg6qlby" path="res://Scenes/grasshill.tscn" id="2_7yhn4"]
+
+[node name="Level4" type="Node3D"]
+
+[node name="EnemySpawner3" parent="." instance=ExtResource("1_s7gh3")]
+transform = Transform3D(0.814551, 0, -0.580092, 0, 1, 0, 0.580092, 0, 0.814551, 7.70779, 0, -9.13641)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("1_s7gh3")]
+transform = Transform3D(0.886882, 0, -0.461996, 0, 1, 0, 0.461996, 0, 0.886882, 8.328, 0, 6.30508)
+
+[node name="EnemySpawner2" parent="." instance=ExtResource("1_s7gh3")]
+transform = Transform3D(0.888961, 0, -0.457983, 0, 1, 0, 0.457983, 0, 0.888961, 16.3998, 0, -11.3674)
+
+[node name="grasshill" parent="." instance=ExtResource("2_7yhn4")]
+transform = Transform3D(2.83708, 0, 0, 0, 1.18952, 0, 0, 0, 2.53779, 7.45996, 0, 0)

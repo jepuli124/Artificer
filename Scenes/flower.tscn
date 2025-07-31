@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://wj0014kchb16"]
+
+[ext_resource type="PackedScene" uid="uid://cjv4tqsnw84ul" path="res://3dModels/flower.glb" id="1_s3cv5"]
+
+[node name="flower" instance=ExtResource("1_s3cv5")]

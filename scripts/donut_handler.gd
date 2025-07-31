@@ -36,5 +36,5 @@ func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3,
 					follow = true
 				else:
 					follow = false
-					velocity = (donutHolder.global_position - donutHolder.get_parent().global_position).normalized() * SPEED
+					velocity = (donutHolder.global_position - donutHolder.get_parent().global_position).normalized() * SPEED/10
 			#get_mouse_position()

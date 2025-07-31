@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1q71xyinpnfo"]
+
+[ext_resource type="PackedScene" uid="uid://de2fwgfh4ilgc" path="res://Scenes/enemy_spawner.tscn" id="1_6o2xc"]
+[ext_resource type="PackedScene" uid="uid://wj0014kchb16" path="res://Scenes/flower.tscn" id="2_petmu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_petmu"]
+albedo_color = Color(0.346951, 0.43489, 0.162016, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nm84x"]
+material = SubResource("StandardMaterial3D_petmu")
+
+[node name="Level3" type="Node3D"]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("1_6o2xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 8)
+
+[node name="EnemySpawner2" parent="." instance=ExtResource("1_6o2xc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -8)
+
+[node name="flower" parent="." instance=ExtResource("2_petmu")]
+transform = Transform3D(-0.0418881, 3.80624, 0, 1.91783e-07, 1.58843e-09, -1.00233, -4.38747, -0.036339, -4.3813e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.44095, 0, 0, 0, 1.53158, 0, 0, 0, 4.18682, 5.67188, -0.361669, 0)
+mesh = SubResource("PlaneMesh_nm84x")
