@@ -65,6 +65,7 @@ text = "The good button
  (exit)"
 
 [node name="Info" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -92,7 +93,7 @@ github wrong repository and I'm to lazy to change it.
 This has been a great way to test everything that comes to
 making a video game.
 
-This product consists 3 wizard(s)"
+This product consists 5 wizard(s)"
 horizontal_alignment = 1
 
 [node name="WizardCounter" type="Label" parent="HBoxContainer/Info"]
@@ -124,16 +125,17 @@ or left or right on game controller.
 Interract with left and right click.
   
 Main game:
-Donut's grow on wall, you can pick them by clicking on them
+Donuts, Rocks, and Abysses grow on wall,
+ you can pick them by clicking on them
 In front of your tower, clients arrive.
 Serve them donuts before they become 
 hangry (hungry and angry)
 
 Stones can also be found at walls and these are used to
-deter the monster by throwing them at it.
+deter the abysses by throwing them at it.
 
-Using stones against clients is disencourages as it is
-inhumane I guess.
+Using stones against clients is disencouraged as it is
+inhumane I guess. Although it works in a pinch.
 
 You win by surviving the day.
 
@@ -148,6 +150,16 @@ alignment = 1
 [node name="ReturnFromInfo" type="Button" parent="HBoxContainer/Levels"]
 layout_mode = 2
 text = "back to main menu"
+
+[node name="seeIntro" type="Button" parent="HBoxContainer/Levels"]
+layout_mode = 2
+text = "Intro video"
+
+[node name="seeFinal" type="Button" parent="HBoxContainer/Levels"]
+visible = false
+layout_mode = 2
+text = "Completion video
+"
 
 [node name="Options" type="VBoxContainer" parent="HBoxContainer"]
 visible = false
@@ -199,5 +211,7 @@ layout_mode = 2
 [connection signal="pressed" from="HBoxContainer/Info/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]
 [connection signal="pressed" from="HBoxContainer/Tutorial/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]
 [connection signal="pressed" from="HBoxContainer/Levels/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]
+[connection signal="pressed" from="HBoxContainer/Levels/seeIntro" to="." method="_on_see_intro_pressed"]
+[connection signal="pressed" from="HBoxContainer/Levels/seeFinal" to="." method="_on_see_final_pressed"]
 [connection signal="pressed" from="HBoxContainer/Options/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]
 [connection signal="pressed" from="HBoxContainer/GameOver/ReturnFromInfo" to="." method="_on_return_from_info_pressed"]

@@ -8,7 +8,7 @@
 
 [sub_resource type="Environment" id="Environment_mq6nj"]
 background_mode = 1
-background_color = Color(0.385289, 0.44198, 0.471298, 1)
+background_color = Color(0.329382, 0.562541, 0.650376, 1)
 sky = SubResource("Sky_xxr4i")
 ambient_light_color = Color(0.473412, 0.729394, 0.799087, 1)
 

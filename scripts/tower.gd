@@ -12,9 +12,17 @@ class_name tower
 @onready var line := $Line
 @onready var inlinePeople := $InlinePeople
 @onready var rockLabel := $Camera3D/Control/Label
+@onready var Nom = $Nom
+@onready var Knock = $Knock
+@onready var AbyssSpawn = $AbyssSpawn
+@onready var Viuh = $viuh
+
 var inlineMethods : Array = []
 
 @export var SPEED := 1
+
+var Main
+
 var MOUSEMovement := 0
 var ROCKamount := 0
 signal lose
@@ -22,7 +30,10 @@ signal order
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for rootChild in get_tree().root.get_children():
+		if(rootChild.name == "Main"):
+			Main = rootChild
+			break
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +44,13 @@ func _process(delta: float) -> void:
 		camera.rotation.y = camera.rotation.y + input_dir * delta * SPEED
 	elif MOUSEMovement:
 		camera.rotation.y = camera.rotation.y + MOUSEMovement * delta * SPEED
-		
+
+func checkPitch():
+	if(line.get_child_count() + abyssCollection.get_child_count() >= 3):
+		Main.set_pitch(1.0/((line.get_child_count() + abyssCollection.get_child_count())/3.0))
+	else:
+		Main.resetPitch()
+
 func _on_area_2d_mouse_entered() -> void:
 	MOUSEMovement = 1
 	
@@ -71,20 +88,6 @@ func _on_donut_wall_body_entered(body: Node3D) -> void:
 			body.tooBig.connect(lose.emit)
 
 
-#func _on_enter_line_body_entered(body: Node3D) -> void:
-#	print(body)
-#	if(body is Client):
-#		if(body.inline == false):
-#			var followLine = PathFollow3D
-#			var childcount = line.get_child_count()
-#			if(childcount >= 6):
-#				lose.emit()
-#			line.add_child(followLine)
-#			followLine.progress_ratio = 6-childcount/6.0
-#			body.inline = true
-#			print(followLine.global_position)
-#			body.set_target_position(followLine.global_position)
-
 func line_fix() -> void:
 	var paths = line.get_children()
 	#var clientsInline = inlinePeople.get_children()
@@ -96,16 +99,19 @@ func line_fix() -> void:
 	inlineMethods.remove_at(0)
 	
 func orderDone() -> void:
+	Nom.play()
 	Scores.currentScore += 1
 	order.emit()
 	line_fix()
 
 
 func client_rocked() -> void:
+	Knock.play()
 	Scores.currentScore -= 2
 	line_fix()
 
 func _on_enter_line_area_entered(area: Area3D) -> void:
+	checkPitch()
 	var body = area.get_parent()
 	if(body is Client):
 		if(body.inline == false):
@@ -124,16 +130,18 @@ func _on_enter_line_area_entered(area: Area3D) -> void:
 
 
 func _on_rock_timer_timeout() -> void:
-	if(randf() > 0.25):
+	if(randf() > 0.25 + 0.03 * Scores.currentLv):
 		var newRock = rock.instantiate()
 		throw_at_wall_parameters(newRock)
 		newRock.connect("picked", add_rock)
 		newRock.visible = false
 		rockCollection.add_child(newRock)
 	else:
+		AbyssSpawn.play()
 		var newAbyss = abyssBlob.instantiate()
 		throw_at_wall_parameters(newAbyss)
 		abyssCollection.add_child(newAbyss)
+		checkPitch()
 
 func add_rock():
 	ROCKamount += 1
@@ -141,6 +149,7 @@ func add_rock():
 
 func can_throw_rock():
 	if(ROCKamount > 0):
+		Viuh.play()
 		ROCKamount -= 1
 		changeRockLabel()
 		return true

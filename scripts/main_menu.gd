@@ -8,6 +8,10 @@ extends Control
 @onready var gameOver := $HBoxContainer/GameOver
 @onready var wizardLabel := $HBoxContainer/Info/WizardCounter
 @onready var ScoreLabel := $HBoxContainer/Info/ScoreLabel
+@onready var seeFinal := $HBoxContainer/Levels/seeFinal
+
+@onready var video1 := preload("uid://cfxfmsqs7kc1c")
+@onready var video2 := preload("uid://go1inknxfll8")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	create_level_buttons()
@@ -61,6 +65,8 @@ func _on_info_pressed() -> void:
 
 func _on_levels_pressed() -> void:
 	turn_all_off()
+	if(Scores.highestLV >= 3):
+		seeFinal.visible = true
 	levels.visible = true
 
 
@@ -68,3 +74,12 @@ func _on_options_pressed() -> void:
 	turn_all_off()
 	Scores.checkIfWizardFound("o")
 	options.visible = true
+
+
+func _on_see_intro_pressed() -> void:
+	add_child(video1.instantiate())
+	
+
+
+func _on_see_final_pressed() -> void:
+	add_child(video2.instantiate())

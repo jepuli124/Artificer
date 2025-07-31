@@ -1,8 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds8truaqudd84"]
+[gd_scene load_steps=15 format=3 uid="uid://ds8truaqudd84"]
 
 [ext_resource type="Script" uid="uid://dhx726aovii08" path="res://scripts/tower.gd" id="1_mh5eo"]
 [ext_resource type="PackedScene" uid="uid://bikm235web7lk" path="res://Scenes/tower_mesh.tscn" id="2_tghyl"]
 [ext_resource type="Texture2D" uid="uid://d22elfc6bpkcm" path="res://Assets/Pixtures/arrow.png" id="3_tghyl"]
+[ext_resource type="AudioStream" uid="uid://cvd5k2fg4h5lo" path="res://Music/Nom.mp3" id="4_ou3m2"]
+[ext_resource type="AudioStream" uid="uid://cysl7rv4y3xlu" path="res://Music/srr.mp3" id="5_mxwle"]
+[ext_resource type="AudioStream" uid="uid://btuuurie0dxw7" path="res://Music/knock.mp3" id="5_oh166"]
+[ext_resource type="AudioStream" uid="uid://dtj52a8i2k47s" path="res://Music/viuh.mp3" id="6_oh166"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mh5eo"]
 size = Vector2(70, 668)
@@ -145,6 +149,23 @@ autostart = true
 
 [node name="AbyssColection" type="Node" parent="."]
 
+[node name="Nom" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_ou3m2")
+max_polyphony = 5
+
+[node name="Knock" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_oh166")
+
+[node name="AbyssSpawn" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_mxwle")
+volume_db = 10.0
+max_db = 6.0
+pitch_scale = 0.5
+
+[node name="viuh" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_oh166")
+volume_db = -3.0
+
 [connection signal="mouse_entered" from="Camera3D/Control/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Camera3D/Control/Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="Camera3D/Control/Area2D2" to="." method="_on_area_2d_2_mouse_entered"]
@@ -153,6 +174,5 @@ autostart = true
 [connection signal="body_entered" from="DonutWall" to="." method="_on_donut_wall_body_entered"]
 [connection signal="body_exited" from="DonutAllowArea" to="." method="_on_donut_allow_area_body_exited"]
 [connection signal="area_entered" from="EnterLine" to="." method="_on_enter_line_area_entered"]
-[connection signal="body_entered" from="EnterLine" to="." method="_on_enter_line_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_generate_donut"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]

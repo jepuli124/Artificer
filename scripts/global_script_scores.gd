@@ -9,9 +9,11 @@ var currentLv := 0
 var abyssesBanished := 0
 var endReason := ""
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("here")
+	if(false):
+		DirAccess.remove_absolute("user://highscore.txt")
 	if(FileAccess.file_exists("user://highscore.txt")):
 		var file = FileAccess.open("user://highscore.txt", FileAccess.READ)
 		

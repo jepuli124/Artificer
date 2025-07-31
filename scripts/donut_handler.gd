@@ -10,7 +10,7 @@ var donutHolder : Marker3D
 @onready var donut := preload("uid://r56acher5wec")
 @onready var donutSpringle := preload("uid://dg25xh1ay5kqx")
 @onready var donutSpringleBalls := preload("uid://cl38il8mar6t8")
-
+@onready var viuh = $viuh
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var chosenDonut = [donut, donutSpringle, donutSpringleBalls].pick_random()
@@ -35,6 +35,7 @@ func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3,
 				if not follow:
 					follow = true
 				else:
+					viuh.play()
 					follow = false
 					velocity = (donutHolder.global_position - donutHolder.get_parent().global_position).normalized() * SPEED/10
 			#get_mouse_position()

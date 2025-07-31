@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfxfmsqs7kc1c"]
+
+[ext_resource type="VideoStream" uid="uid://cpeh8itjplylo" path="res://cutscenes/2025-07-31 18-41-36.ogv" id="1_3w7i0"]
+[ext_resource type="Script" uid="uid://b7ejmi8nmd7hx" path="res://scripts/scene_player.gd" id="1_gd4h2"]
+
+[node name="ScenePlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gd4h2")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -29.0
+offset_right = 1251.0
+offset_bottom = 691.0
+stream = ExtResource("1_3w7i0")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
