@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<indexing>
+ <paragraph index="9" node_type="writer">Declaration of AI Usage</paragraph>
+ <paragraph index="11" node_type="writer">Student ID number: 000489689</paragraph>
+ <paragraph index="12" node_type="writer">First name: Konsta </paragraph>
+ <paragraph index="13" node_type="writer">Last names: Jalkanen</paragraph>
+ <paragraph index="15" node_type="writer">No AI Tools Utilized</paragraph>
+ <paragraph index="17" node_type="writer">I, the undersigned, in line with LUT AI usage recommendations and policy (https://elut.lut.fi/en/completing-studies/rules-and-regulations/ai-based-tools-policies ) hereby declare that no AI assistance or tools were used in the development of the contents of my final work of fundamentals of game development.</paragraph>
+ <paragraph index="21" node_type="writer">DUE TO THE GAME IS SLIGHTLY LARGER THAN 64 MB, THE CODE GRADE DOESN’T ACCEPT THE FILES. HERE IS LINK TO GITHUB REPO: https://github.com/jepuli124/Artificer </paragraph>
+ <paragraph index="25" node_type="writer">The points I request from the art what this work is.</paragraph>
+ <object index="27" name="Table1" object_type="table"/>
+ <paragraph index="29" node_type="writer" parent_index="27">Features (from original list)</paragraph>
+ <paragraph index="32" node_type="writer" parent_index="27">Points</paragraph>
+ <paragraph index="35" node_type="writer" parent_index="27">The game can be played, it does not crash, the player does not get stuck,</paragraph>
+ <paragraph index="36" node_type="writer" parent_index="27">etc.</paragraph>
+ <paragraph index="39" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="42" node_type="writer" parent_index="27">The game has consistent and coherent visual look</paragraph>
+ <paragraph index="45" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="48" node_type="writer" parent_index="27">The game has enemies that can be destroyed</paragraph>
+ <paragraph index="51" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="54" node_type="writer" parent_index="27">The enemies have “some intelligence” (state machine is enough), 
+(Clients first arrive end of the line and then wait in corrent places at the line)</paragraph>
+ <paragraph index="57" node_type="writer" parent_index="27">3</paragraph>
+ <paragraph index="60" node_type="writer" parent_index="27">There are some collectable items in the game (e.g. coins, ammo, guns,</paragraph>
+ <paragraph index="61" node_type="writer" parent_index="27">starts...)</paragraph>
+ <paragraph index="64" node_type="writer" parent_index="27">1</paragraph>
+ <paragraph index="67" node_type="writer" parent_index="27">The game area is bigger than just one screen</paragraph>
+ <paragraph index="70" node_type="writer" parent_index="27">1</paragraph>
+ <paragraph index="73" node_type="writer" parent_index="27">There are different menu and game scenes</paragraph>
+ <paragraph index="76" node_type="writer" parent_index="27">1</paragraph>
+ <paragraph index="79" node_type="writer" parent_index="27">The game has dynamic lightning (i.e. the lightning varies on different</paragraph>
+ <paragraph index="80" node_type="writer" parent_index="27">areas / times of the game)</paragraph>
+ <paragraph index="83" node_type="writer" parent_index="27">3</paragraph>
+ <paragraph index="86" node_type="writer" parent_index="27">Gamer can see how fast/good she passes the level/map</paragraph>
+ <paragraph index="89" node_type="writer" parent_index="27">1</paragraph>
+ <paragraph index="92" node_type="writer" parent_index="27">All the settings and game records (high score / TOP10, passed levels, etc)</paragraph>
+ <paragraph index="93" node_type="writer" parent_index="27">are stored in a save file(s)</paragraph>
+ <paragraph index="96" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="99" node_type="writer" parent_index="27">There are various maps with increasing difficulty</paragraph>
+ <paragraph index="102" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="105" node_type="writer" parent_index="27">Finishing something (eg. a map) unlocks something else (e.g. another</paragraph>
+ <paragraph index="106" node_type="writer" parent_index="27">map)</paragraph>
+ <paragraph index="109" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="112" node_type="writer" parent_index="27">The music and sound effects are in balance</paragraph>
+ <paragraph index="115" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="118" node_type="writer" parent_index="27">Music adapts to game situations (e.g. the health level is lower, music is</paragraph>
+ <paragraph index="119" node_type="writer" parent_index="27">more intensive)</paragraph>
+ <paragraph index="122" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="125" node_type="writer" parent_index="27">The game has a real story unfolding while the gamer advances in the</paragraph>
+ <paragraph index="126" node_type="writer" parent_index="27">game</paragraph>
+ <paragraph index="129" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="132" node_type="writer" parent_index="27">Total from original features</paragraph>
+ <paragraph index="135" node_type="writer" parent_index="27">28</paragraph>
+ <paragraph index="144" node_type="writer" parent_index="27">Own features</paragraph>
+ <paragraph index="150" node_type="writer" parent_index="27">Donut pickup, throw, catch system</paragraph>
+ <paragraph index="153" node_type="writer" parent_index="27">3</paragraph>
+ <paragraph index="156" node_type="writer" parent_index="27">Rocks, simple “inventory”, different throw system</paragraph>
+ <paragraph index="159" node_type="writer" parent_index="27">2</paragraph>
+ <paragraph index="162" node_type="writer" parent_index="27">Cutscenes</paragraph>
+ <paragraph index="165" node_type="writer" parent_index="27">1</paragraph>
+ <paragraph index="168" node_type="writer" parent_index="27">Main menu gpu particle background</paragraph>
+ <paragraph index="171" node_type="writer" parent_index="27">1</paragraph>
+ <paragraph index="174" node_type="writer" parent_index="27">Total from original features</paragraph>
+ <paragraph index="177" node_type="writer" parent_index="27">7</paragraph>
+ <paragraph index="186" node_type="writer" parent_index="27">Total request</paragraph>
+ <paragraph index="189" node_type="writer" parent_index="27">35</paragraph>
+</indexing>
